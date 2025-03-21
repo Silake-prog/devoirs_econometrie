@@ -18,9 +18,9 @@ Le document intègre des chunks de code R commentés et reproductibles pour gara
 
 # Exercice 1 : Mortalité infantile en Côte d’Ivoire
 
-## 1. Analyse exploratoire des données
+# 1. Analyse exploratoire des données
 
-### 1.1 Visualisation de la distribution des âges des mères
+## 1.1 Visualisation de la distribution des âges des mères
 
 Nous commençons par étudier la distribution des âges des mères, ce qui permet d’identifier la tendance générale (par exemple, une concentration autour d’une tranche d’âge donnée).
 
@@ -43,7 +43,7 @@ ggplot(data_mort, aes(x = age_m)) +
 La distribution semble centrée autour de la tranche d’âge 20 - 35 ans.
 
 
-1.2 Répartition par sexe
+## 1.2 Répartition par sexe
 
 Nous représentons ensuite la répartition des naissances par sexe via un graphique à barres.
 
