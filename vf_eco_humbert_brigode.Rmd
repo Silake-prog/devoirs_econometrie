@@ -25,19 +25,30 @@ Le document intègre des chunks de code R commentés et reproductibles pour gara
 Nous commençons par étudier la distribution des âges des mères, ce qui permet d’identifier la tendance générale (par exemple, une concentration autour d’une tranche d’âge donnée).
 
 ```{r}
-library(haven)
+
+#téléchargement des packages nécéssaire pour l'entierté du code:
+rm(list=ls()) 
+library(readxl)
+library(dplyr)
+library(tidytext)
+library(stringr)
+library(tidyverse)
+library(writexl)
 library(ggplot2)
+library(corrplot)
+library(stargazer)
+library(labelled)
+library(haven)
 
-# Chargement des données de mortalité infantile
-data_mort <- read_dta("/Users/simonbrigode/Desktop/PSE_TP/DM/civ88_mort.dta")
-names(data_mort)
+#Téléchargement de la base:
+civ88_mort <- read_dta("Downloads/civ88_mort.dta")
+View(civ88_mort)
 
-# Supposons que la variable indiquant l'âge de la mère s'appelle "age_mere"
-ggplot(data_mort, aes(x = age_m)) +
-  geom_histogram(binwidth = 5, fill = "lightblue", color = "black") +
-  labs(title = "Distribution des âges des mères",
-       x = "Âge des mères",
-       y = "Fréquence")
+#Graphique permettant de visualiser la distribution de l'âge des mères:
+
+hist(age_m, breaks = 15, prob = TRUE, col = "lightpink", main = "Distribution de l'âge des mères", xlab = "Âge")
+lines(density(age_m), col = "black", lwd = 2)
+
 ```
 
 La distribution semble centrée autour de la tranche d’âge 20 - 35 ans.
